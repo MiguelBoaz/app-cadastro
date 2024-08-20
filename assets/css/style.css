@@ -313,7 +313,7 @@ textarea {
 }
 
 @media (max-width: 995px) {
-    body {
+    .container {
         padding-left: 20px;
         padding-right: 20px;
     }
