@@ -320,12 +320,6 @@ textarea {
 }
 
 @media (max-width: 995px) {
-    :root {
-        --text: 34px;
-        --label: 32px;
-        --title: 38px;
-    }
-
     /*Tela geral*/
     .workstation {
         flex-direction: column;
@@ -344,7 +338,7 @@ textarea {
 
     /*Feedback*/
     .feedback {
-        height: 62px;
+        height: 90px;
         width: 100%;
         transition: 1s;
     }
@@ -362,6 +356,8 @@ textarea {
     }
     .dropdown img {
         margin-top: -2px;
+        width: 24px;
+        height: 24px;
     }
     #dropBox {
         display: none;
@@ -378,8 +374,40 @@ textarea {
         z-index: 4;
     }
 }
-@media (max-width: 576px) {
+@media (min-width: 768px) {
+    :root {
+        --text: 28px;
+        --label: 26px;
+        --title: 32px;
+    }
     .container {
         width: 100%;
+        padding: 20px 50px;
+    }
+    .container svg {
+        width: 30px;
+        height: 30px;
+    }
+    .form {
+        min-height: 535px;
+    }
+    .feedback {
+        width: 100%;
+        transition: 1s;
+    }
+    .dropdown img {
+        margin-top: 0px;
+    }
+    .box {
+        margin-top: 25px;
+        padding: 20px;
+    }
+    .feedback svg {
+        width: 32px;
+        height: 32px;
+    }
+    .detailsHeader svg, .detailsHeader img {
+        width: 40px;
+        height: 40px;
     }
 }
