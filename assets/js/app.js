@@ -112,7 +112,7 @@ myApp.controller('mainController', function($scope, personService, card) {
             
             setTimeout(() => {
                 $scope.box.style.display = 'none';
-            })
+            }, 1000);
             document.getElementById('abudabi').style.height = '62px';
         }
     }
