@@ -110,7 +110,9 @@ myApp.controller('mainController', function($scope, personService, card) {
             $scope.dropIcon.classList.remove('on');
             $scope.dropIcon.classList.add('off');
             
-            $scope.box.style.display = 'none';
+            setTimeout(() => {
+                $scope.box.style.display = 'none';
+            })
             document.getElementById('abudabi').style.height = '62px';
         }
     }
