@@ -327,6 +327,9 @@ textarea {
     }
 
     /*Tela geral*/
+    .container {
+        width: 600px;
+    }
     .workstation {
         flex-direction: column;
         row-gap: 20px;
