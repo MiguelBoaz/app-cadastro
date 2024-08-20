@@ -314,9 +314,9 @@ textarea {
 
 @media (max-width: 995px) {
     :root {
-        --text: 24px;
-        --label: 22px;
-        --title: 28px;
+        --text: 34px;
+        --label: 32px;
+        --title: 38px;
     }
     .container {
         margin-left: 20px;
