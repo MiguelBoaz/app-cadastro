@@ -15,7 +15,10 @@ body {
 .view {
     flex: 1.2;
 }
-
+.container svg {
+    width: 24px;
+    height: 24px;
+}
 /*Fomulários*/
 .form {
     position: relative;
@@ -136,6 +139,8 @@ button:hover {
     right: 30px;
     color: #a0a0a0;
     z-index: 4;
+    width: 20px;
+    height: 20px;
     transition: 0.3s;
 }
 .feedback svg:hover {
@@ -235,6 +240,8 @@ button:hover {
     flex: 1;
     border-radius: 16px;
     padding: 5px;
+    width: 32px;
+    height: 32px;
     transition: 0.3s;
 }
 .detailsHeader svg:hover, .detailsHeader img:hover {
@@ -318,10 +325,7 @@ textarea {
         --label: 32px;
         --title: 38px;
     }
-    .container {
-        margin-left: 20px;
-        margin-right: 20px;
-    }
+
     /*Tela geral*/
     .workstation {
         flex-direction: column;
@@ -372,5 +376,10 @@ textarea {
     .changesCard {
         padding: 20px 40px;
         z-index: 4;
+    }
+}
+@media (max-width: 576px) {
+    .container {
+        width: 550px;
     }
 }
