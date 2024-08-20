@@ -313,6 +313,11 @@ textarea {
 }
 
 @media (max-width: 995px) {
+    :root {
+        --text: 24px;
+        --label: 22px;
+        --title: 28px;
+    }
     .container {
         margin-left: 20px;
         margin-right: 20px;
@@ -327,7 +332,7 @@ textarea {
     /*Formulário de cadastro*/
     .form {
         min-height: 405px;
-
+        width: 100%;
     }
     .form form {
         width: 100%;
@@ -336,6 +341,7 @@ textarea {
     /*Feedback*/
     .feedback {
         height: 62px;
+        width: 100%;
         transition: 1s;
     }
     .dropdown {
