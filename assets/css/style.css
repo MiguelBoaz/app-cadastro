@@ -312,7 +312,7 @@ textarea {
     font-size: var(--label);
 }
 
-@media (max-width: 995px) {
+@include media-breakpoint-down(lg) {
     /*Tela geral*/
     .workstation {
         flex-direction: column;
