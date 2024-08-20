@@ -75,6 +75,8 @@ button {
     padding: 10px 0;
     border-radius: 5px;
     border: none;
+    font-size: var(--text);
+    transition: 0.3s;
 }
 button:hover {
     background-color: #a0a0a0;
@@ -129,7 +131,7 @@ button:hover {
     right: 30px;
     color: #a0a0a0;
     z-index: 4;
-
+    transition: 0.3s;
 }
 .feedback svg:hover {
     color: #444444;
@@ -147,6 +149,7 @@ button:hover {
     padding: 10px;
     border-radius: 10px;
     margin-top: 10px;
+    transition: 0.3s;
 }
 .box:hover {
     background-color: #e9e9e9;
@@ -170,6 +173,40 @@ button:hover {
     font-size: var(--label);
     color: #5e5e5e;
 }
+.noneRegister {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.noneRegister p {
+    font-size: var(--title);
+    font-weight: 500;
+}
+.noneRegister label {
+    background-color: #f0f0f0;
+    background-image: url("../images/plus.png");
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: 25px center;
+    width: 50%;
+    padding: 10px 40px;
+    padding-left: 40px;
+    font-size: var(--text) !important;
+    text-align: center;
+    color: #444444;
+    border-radius: 5px;
+}
+.noneRegister label:hover {
+    background-image: url("../images/whiteplus.png");
+    background-color: #a0a0a0;
+    color: white;
+}
 
 /*Detalhamento*/
 .details {
@@ -192,6 +229,7 @@ button:hover {
     flex: 1;
     border-radius: 16px;
     padding: 5px;
+    transition: 0.3s;
 }
 .detailsHeader svg:hover, .detailsHeader img:hover {
     background-color: #e9e9e9;
