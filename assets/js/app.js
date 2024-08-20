@@ -101,7 +101,7 @@ myApp.controller('mainController', function($scope, personService, card) {
            
 
             $scope.box.style.display = 'block';
-            document.getElementById('abudabi').style.height = '400px';
+            document.getElementById('box').style.height = '400px';
 
             
 
@@ -113,7 +113,7 @@ myApp.controller('mainController', function($scope, personService, card) {
             setTimeout(() => {
                 $scope.box.style.display = 'none';
             }, 1000);
-            document.getElementById('abudabi').style.height = '62px';
+            document.getElementById('box').style.height = '62px';
         }
     }
 
