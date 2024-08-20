@@ -5,6 +5,7 @@
 }
 body {
     background-color: #f2f2f2;
+    padding-top: 50px;
 }
 /*Tela geral*/
 .workstation {
@@ -319,9 +320,11 @@ textarea {
         row-gap: 20px;
         padding-bottom: 20px;
     }
+    
     /*Formulário de cadastro*/
     .form {
         min-height: 405px;
+
     }
     .form form {
         width: 100%;

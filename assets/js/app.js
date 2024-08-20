@@ -95,7 +95,7 @@ myApp.controller('mainController', function($scope, personService, card) {
         $scope.box = document.getElementById('dropBox');
         
         if ($scope.dropIcon.classList[0] == 'off') {
-            $scope.dropIcon.setAttribute('src', '../assets/images/up.png');
+            $scope.dropIcon.setAttribute('src', 'assets/images/up.png');
             $scope.dropIcon.classList.remove('off');
             $scope.dropIcon.classList.add('on');
            
@@ -106,7 +106,7 @@ myApp.controller('mainController', function($scope, personService, card) {
             
 
         } else {
-            $scope.dropIcon.setAttribute('src', '../assets/images/down.png');
+            $scope.dropIcon.setAttribute('src', 'assets/images/down.png');
             $scope.dropIcon.classList.remove('on');
             $scope.dropIcon.classList.add('off');
             
