@@ -314,8 +314,8 @@ textarea {
 
 @media (max-width: 995px) {
     .container {
-        padding-left: 20px;
-        padding-right: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
     }
     /*Tela geral*/
     .workstation {
@@ -354,6 +354,11 @@ textarea {
         margin-top: -2px;
     }
     #dropBox {
+        display: none;
+        transition: 1s;
+    }
+    #noRegister {
+        transition: 0.7s;
         display: none;
     }
 

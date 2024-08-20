@@ -41,7 +41,7 @@ myApp.value('card', [
     { name: 'Miguel Boaz Q. V. S.', occupation: 'Auxiliar de programação', age: 22, id: 1, description: ''}
 ]);
 
-myApp.controller('mainController', function($scope, personService, card) { 
+myApp.controller('mainController', function($scope, $timeout, personService, card) { 
     
     $scope.card = card;
 
@@ -89,31 +89,50 @@ myApp.controller('mainController', function($scope, personService, card) {
             }
         });
     }
-
+       
     $scope.dropdown = function () {
         $scope.dropIcon = document.getElementById('dropIcon');
+        $scope.noRegister = document.getElementById('noRegister');
         $scope.box = document.getElementById('dropBox');
+        $scope.hgBox = document.getElementById('box');       
         
         if ($scope.dropIcon.classList[0] == 'off') {
             $scope.dropIcon.setAttribute('src', 'assets/images/up.png');
             $scope.dropIcon.classList.remove('off');
             $scope.dropIcon.classList.add('on');
            
+            $scope.box.style.display = 'none';
+            $scope.hgBox.style.height = '400px';
+            $timeout (() => {
+                $scope.box.style.display = 'block';
+                $scope.box.style.opacity = '1';
+            }, 20)
 
-            $scope.box.style.display = 'block';
-            document.getElementById('box').style.height = '400px';
-
-            
-
+            if ($scope.card.length == 0) {
+                $scope.noRegister.style.opacity = '0';
+                $scope.noRegister.style.display = 'flex';
+                $timeout(() => {
+                $scope.noRegister.style.opacity = '1';
+                }, 200);
+            }
         } else {
             $scope.dropIcon.setAttribute('src', 'assets/images/down.png');
             $scope.dropIcon.classList.remove('on');
             $scope.dropIcon.classList.add('off');
+            $scope.hgBox.style.height = '62px';
+
             
-            setTimeout(() => {
+            $timeout(() => {
                 $scope.box.style.display = 'none';
             }, 1000);
-            document.getElementById('box').style.height = '62px';
+            $scope.box.style.opacity = '0';
+
+            if ($scope.card.length == 0) {
+                $timeout(() => {
+                    $scope.noRegister.style.display = 'none';
+                }, 1000);
+                $scope.noRegister.style.opacity = '0';
+            }
         }
     }
 
