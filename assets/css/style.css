@@ -23,7 +23,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 400px;
+    min-width: 400px;
     height: 400px;
     overflow-y: hidden;
     border-radius: 12px;
@@ -122,8 +122,13 @@ button:hover {
     background-color: white;
     padding: 20px;
     border-radius: 12px;
+    display: flex;
+    flex-direction: column;
 }
 .feedback::-webkit-scrollbar {
+    display: none;
+}
+.dropdown {
     display: none;
 }
 .feedback svg {
@@ -210,6 +215,7 @@ button:hover {
 
 /*Detalhamento*/
 .details {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -236,7 +242,7 @@ button:hover {
 }
 
 .details .personalInfo {
-    column-gap: 20px;
+    column-gap: 10px;
 }
 .flexName {
     flex: 3;
@@ -304,4 +310,50 @@ textarea {
     margin: 0;
     padding: 0;
     font-size: var(--label);
+}
+
+@media (max-width: 995px) {
+    /*Tela geral*/
+    .workstation {
+        flex-direction: column;
+        row-gap: 20px;
+        padding-bottom: 20px;
+    }
+    /*Formulário de cadastro*/
+    .form {
+        min-height: 405px;
+    }
+    .form form {
+        width: 100%;
+    }
+
+    /*Feedback*/
+    .feedback {
+        height: 62px;
+        transition: 1s;
+    }
+    .dropdown {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        column-gap: 10px;
+        font-size: var(--text);
+        text-decoration: none;
+    }
+    .dropdown p {
+        margin: 0;
+        color: #444444;
+    }
+    .dropdown img {
+        margin-top: -2px;
+    }
+    #dropBox {
+        display: none;
+    }
+
+    /*Card de mudanças*/
+    .changesCard {
+        padding: 20px 40px;
+        z-index: 4;
+    }
 }

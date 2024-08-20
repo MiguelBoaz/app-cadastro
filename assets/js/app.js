@@ -90,6 +90,31 @@ myApp.controller('mainController', function($scope, personService, card) {
         });
     }
 
+    $scope.dropdown = function () {
+        $scope.dropIcon = document.getElementById('dropIcon');
+        $scope.box = document.getElementById('dropBox');
+        
+        if ($scope.dropIcon.classList[0] == 'off') {
+            $scope.dropIcon.setAttribute('src', '../assets/images/up.png');
+            $scope.dropIcon.classList.remove('off');
+            $scope.dropIcon.classList.add('on');
+           
+
+            $scope.box.style.display = 'block';
+            document.getElementById('abudabi').style.height = '400px';
+
+            
+
+        } else {
+            $scope.dropIcon.setAttribute('src', '../assets/images/down.png');
+            $scope.dropIcon.classList.remove('on');
+            $scope.dropIcon.classList.add('off');
+            
+            $scope.box.style.display = 'none';
+            document.getElementById('abudabi').style.height = '62px';
+        }
+    }
+
 });
 
 myApp.controller('childController', function($scope, card, $routeParams){
