@@ -327,9 +327,6 @@ textarea {
     }
 
     /*Tela geral*/
-    .container {
-        width: 600px;
-    }
     .workstation {
         flex-direction: column;
         row-gap: 20px;
@@ -383,6 +380,6 @@ textarea {
 }
 @media (max-width: 576px) {
     .container {
-        width: 550px;
+        width: 650px;
     }
 }
