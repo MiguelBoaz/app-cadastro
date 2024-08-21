@@ -344,6 +344,11 @@ textarea {
     }
     .dropdown {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .dropdownRight {
+        display: flex;
         justify-content: end;
         align-items: center;
         column-gap: 10px;
@@ -394,6 +399,9 @@ textarea {
     .feedback {
         width: 100%;
         transition: 1s;
+    }
+    .dropdown{
+        font-size: var(--text);
     }
     .dropdown img {
         margin-top: 0px;

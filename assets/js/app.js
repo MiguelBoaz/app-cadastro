@@ -43,8 +43,8 @@ myApp.value('card', [
 
 myApp.controller('mainController', function($scope, $timeout, personService, card) { 
     
-    $scope.card = card;
-
+    $scope.card = card;        
+    
     $scope.allIds = [72, 99, 69, 1];
 
     let idComplement = 1;
@@ -72,10 +72,32 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
         }
     }
 
+    $scope.openVerify = function () {
+        $scope.noRegister = document.getElementById('noRegister');
+
+        if ($scope.hgBox.classList.contains('open') && $scope.hgBox.clientHeight != 90 ) {
+            console.log($scope.noRegister)
+            $scope.noRegister.style.display = 'flex';
+            $scope.noRegister.style.opacity = '0';
+
+            $timeout (() => {
+                $scope.noRegister.style.opacity = '1';
+            }, 50);
+        }
+    }
+
     $scope.clear = function() {
         do {
             card.pop();
         } while (card.length > 0);
+        $scope.hgBox = document.getElementById('box');
+
+        console.log($scope.hgBox);
+
+        $scope.hgBox.classList.add('open');
+        $timeout (() => {
+            $scope.openVerify($scope.noRegister);
+        }, 200);
     }
 
     $scope.deleteItem = function ($event) {
@@ -92,9 +114,9 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
        
     $scope.dropdown = function () {
         $scope.dropIcon = document.getElementById('dropIcon');
-        $scope.noRegister = document.getElementById('noRegister');
         $scope.box = document.getElementById('dropBox');
-        $scope.hgBox = document.getElementById('box');       
+        $scope.noRegister = document.getElementById('noRegister');
+        $scope.hgBox = document.getElementById('box');  
         
         if ($scope.dropIcon.classList[0] == 'off') {
             $scope.dropIcon.setAttribute('src', 'assets/images/up.png');

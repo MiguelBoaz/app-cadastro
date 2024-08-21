@@ -1,10 +1,11 @@
 <div class="feedback" id="box" >
 
-    <div>
-        <a class="dropdown" href="" ng-click="dropdown()">
+    <div class="dropdown">
+        <p>Lista de cadastros</p>
+        <a href="" class="dropdownRight" ng-click="dropdown()">
             <p>Ver mais</p>
             <img class="off" id="dropIcon" src="assets/images/down.png" alt="">
-        </a>
+            </a>
     </div>
     <div id="dropBox">
         <div class="box" ng-repeat="x in card | orderBy: ['age', 'name']" >
