@@ -338,7 +338,7 @@ textarea {
 
     /*Feedback*/
     .feedback {
-        height: 90px;
+        height: 65px;
         border-radius: 12px;
         width: 100%;
         transition: 1s;
@@ -416,7 +416,7 @@ textarea {
     
     .container {
         width: 100%;
-        padding: 20px 50px;
+        padding: 20px 20px;
     }
     .container svg {
         width: 30px;
@@ -425,7 +425,7 @@ textarea {
 
     /*Formulário de cadastro*/
     .form {
-        min-height: 535px;
+        min-height: 425px;
         min-width: 100%;
     }
     .form form {
@@ -433,7 +433,8 @@ textarea {
     }
     /*Feedback*/
     .feedback {
-        height: 90px;
+        height: 65px;
+        justify-content: center;
         border-radius: 12px;
         width: 100%;
         transition: 1s;

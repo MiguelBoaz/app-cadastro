@@ -75,7 +75,7 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
     $scope.openVerify = function () {
         $scope.noRegister = document.getElementById('noRegister');
 
-        if ($scope.hgBox.classList.contains('open') && $scope.hgBox.clientHeight != 90 ) {
+        if ($scope.hgBox.classList.contains('open') && $scope.hgBox.clientHeight != 65 ) {
             console.log($scope.noRegister)
             $scope.noRegister.style.display = 'flex';
             $scope.noRegister.style.opacity = '0';
@@ -145,7 +145,7 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
             $scope.dropIcon.classList.add('off');
             $scope.hgBox.classList.remove('open');
 
-            $scope.hgBox.style.height = '90px';
+            $scope.hgBox.style.height = '65px';
 
             
             $timeout(() => {
