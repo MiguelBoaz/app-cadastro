@@ -122,6 +122,8 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
             $scope.dropIcon.setAttribute('src', 'assets/images/up.png');
             $scope.dropIcon.classList.remove('off');
             $scope.dropIcon.classList.add('on');
+            $scope.hgBox.classList.add('open');
+
            
             $scope.box.style.display = 'block';
             $scope.box.style.opacity = '0';
@@ -141,6 +143,8 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
             $scope.dropIcon.setAttribute('src', 'assets/images/down.png');
             $scope.dropIcon.classList.remove('on');
             $scope.dropIcon.classList.add('off');
+            $scope.hgBox.classList.remove('open');
+
             $scope.hgBox.style.height = '90px';
 
             
