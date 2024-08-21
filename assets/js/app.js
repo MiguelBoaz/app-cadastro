@@ -123,10 +123,10 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
             $scope.dropIcon.classList.remove('off');
             $scope.dropIcon.classList.add('on');
            
-            $scope.box.style.display = 'none';
+            $scope.box.style.display = 'block';
+            $scope.box.style.opacity = '0';
             $scope.hgBox.style.height = '700px';
             $timeout (() => {
-                $scope.box.style.display = 'block';
                 $scope.box.style.opacity = '1';
             }, 20)
 

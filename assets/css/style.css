@@ -326,7 +326,7 @@ textarea {
         row-gap: 20px;
         padding-bottom: 20px;
     }
-    
+
     /*Formulário de cadastro*/
     .form {
         min-height: 405px;
@@ -339,6 +339,7 @@ textarea {
     /*Feedback*/
     .feedback {
         height: 90px;
+        border-radius: 12px;
         width: 100%;
         transition: 1s;
     }
@@ -346,6 +347,8 @@ textarea {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        column-gap: 40px;
+        background-color: white;
     }
     .dropdownRight {
         display: flex;
@@ -359,6 +362,9 @@ textarea {
         margin: 0;
         color: #444444;
     }
+    div.dropdown > p:nth-child(1) {
+        font-weight: 600;
+    }
     .dropdown img {
         margin-top: -2px;
         width: 24px;
@@ -366,7 +372,28 @@ textarea {
     }
     #dropBox {
         display: none;
+        margin-top: 30px;
+        padding-top: 5px;
+        border-top: 1px solid #d0d0d0;
         transition: 1s;
+    }
+    #searchBox {
+        padding-top: 20px;
+    }
+    #searchBox input {
+        flex: 1;
+        border-radius: 30px;
+        background-color: white;
+        background-image: url("../images/search.png");
+        background-size: 32px;
+        background-repeat: no-repeat;
+        background-position: 10px center;
+        padding-left: 50px;
+        padding-right: 10px;
+        transition: 0.3s;
+    }
+    #searchBox input:focus {
+        background-image: url("../images/searchfocus.png");
     }
     #noRegister {
         transition: 0.7s;
