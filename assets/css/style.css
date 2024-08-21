@@ -434,7 +434,6 @@ textarea {
     /*Feedback*/
     .feedback {
         height: 65px;
-        justify-content: center;
         border-radius: 12px;
         width: 100%;
         transition: 1s;
@@ -446,6 +445,7 @@ textarea {
         column-gap: 40px;
         background-color: white;
         font-size: var(--text);
+        z-index: 3;
     }
     .dropdownRight {
         display: flex;
@@ -473,6 +473,7 @@ textarea {
         padding-top: 5px;
         border-top: 1px solid #d0d0d0;
         transition: 1s;
+        z-index: 2;
     }
     #searchBox {
         padding-top: 20px;
@@ -482,7 +483,7 @@ textarea {
         border-radius: 30px;
         background-color: white;
         background-image: url("../images/search.png");
-        background-size: 32px;
+        background-size: 24px;
         background-repeat: no-repeat;
         background-position: 10px center;
         padding-left: 50px;
@@ -495,6 +496,10 @@ textarea {
     #noRegister {
         transition: 0.7s;
         display: none;
+        z-index: 1;
+    }
+    #noRegister label {
+        width: 60%;
     }
     .box {
         margin-top: 25px;

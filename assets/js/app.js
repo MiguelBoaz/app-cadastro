@@ -41,10 +41,29 @@ myApp.value('card', [
     { name: 'Miguel Boaz Q. V. S.', occupation: 'Auxiliar de programação', age: 22, id: 1, description: ''}
 ]);
 
-myApp.controller('mainController', function($scope, $timeout, personService, card) { 
+myApp.value('feedbackItens', {
+    noRegister: null,
+    dropIcon: null,
+    dropBox: null,
+    boxGeral: null
+});
+
+myApp.directive('initFeedbackItens', function(feedbackItens) {
+    return {
+        restrict: "A",
+        link: function(scope, element) {
+            feedbackItens.noRegister = document.getElementById('noRegister');
+            feedbackItens.dropIcon = document.getElementById('dropIcon');
+            feedbackItens.dropBox = document.getElementById('dropBox');
+            feedbackItens.boxGeral = document.getElementById('box');
+        }
+    };
+});
+
+myApp.controller('mainController', function($scope, $timeout, personService, card, feedbackItens) { 
     
-    $scope.card = card;        
-    
+    $scope.card = card;
+    $scope.feedbackItens = feedbackItens;
     $scope.allIds = [72, 99, 69, 1];
 
     let idComplement = 1;
@@ -72,16 +91,28 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
         }
     }
 
-    $scope.openVerify = function () {
-        $scope.noRegister = document.getElementById('noRegister');
+    let verify = setInterval (() => {
+            if ($scope.card.length > 0 &&  $scope.feedbackItens.noRegister != null) {
+                $scope.feedbackItens.noRegister.style.display = 'none';
+            } else if  ($scope.feedbackItens.noRegister != null) {
+                $scope.feedbackItens.noRegister.style.display = 'flex';
+                $scope.feedbackItens.noRegister.style.opacity = '0';
 
-        if ($scope.hgBox.classList.contains('open') && $scope.hgBox.clientHeight != 65 ) {
-            console.log($scope.noRegister)
-            $scope.noRegister.style.display = 'flex';
-            $scope.noRegister.style.opacity = '0';
+                $timeout (() => {
+                    $scope.feedbackItens.noRegister.style.opacity = '1';
+                }, 50);
+                clearInterval(verify);
+            }
+        });
+
+    $scope.openVerify = function () {
+        if ($scope.feedbackItens.boxGeral.classList.contains('open') && $scope.feedbackItens.boxGeral.clientHeight != 65) {
+            console.log($scope.feedbackItens.noRegister)
+            $scope.feedbackItens.noRegister.style.display = 'flex';
+            $scope.feedbackItens.noRegister.style.opacity = '0';
 
             $timeout (() => {
-                $scope.noRegister.style.opacity = '1';
+                $scope.feedbackItens.noRegister.style.opacity = '1';
             }, 50);
         }
     }
@@ -90,13 +121,12 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
         do {
             card.pop();
         } while (card.length > 0);
-        $scope.hgBox = document.getElementById('box');
 
-        console.log($scope.hgBox);
+        console.log($scope.feedbackItens.boxGeral);
 
-        $scope.hgBox.classList.add('open');
+        $scope.feedbackItens.boxGeral.classList.add('open');
         $timeout (() => {
-            $scope.openVerify($scope.noRegister);
+            $scope.openVerify();
         }, 200);
     }
 
@@ -110,54 +140,58 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
                 }
             }
         });
+
+        console.log($scope.feedbackItens.noRegister);
+
+        if ($scope.card.length == 0) {
+            console.log("oi");
+            
+    }
     }
        
     $scope.dropdown = function () {
         $scope.dropIcon = document.getElementById('dropIcon');
-        $scope.box = document.getElementById('dropBox');
-        $scope.noRegister = document.getElementById('noRegister');
-        $scope.hgBox = document.getElementById('box');  
         
-        if ($scope.dropIcon.classList[0] == 'off') {
-            $scope.dropIcon.setAttribute('src', 'assets/images/up.png');
-            $scope.dropIcon.classList.remove('off');
-            $scope.dropIcon.classList.add('on');
-            $scope.hgBox.classList.add('open');
+        if ( $scope.feedbackItens.dropIcon.classList[0] == 'off') {
+             $scope.feedbackItens.dropIcon.setAttribute('src', 'assets/images/up.png');
+             $scope.feedbackItens.dropIcon.classList.remove('off');
+             $scope.feedbackItens.dropIcon.classList.add('on');
+            $scope.feedbackItens.boxGeral.classList.add('open');
 
            
-            $scope.box.style.display = 'block';
-            $scope.box.style.opacity = '0';
-            $scope.hgBox.style.height = '700px';
+            $scope.feedbackItens.dropBox.style.display = 'block';
+            $scope.feedbackItens.dropBox.style.opacity = '0';
+            $scope.feedbackItens.boxGeral.style.height = '700px';
             $timeout (() => {
-                $scope.box.style.opacity = '1';
+                $scope.feedbackItens.dropBox.style.opacity = '1';
             }, 20)
 
             if ($scope.card.length == 0) {
-                $scope.noRegister.style.opacity = '0';
-                $scope.noRegister.style.display = 'flex';
+                $scope.feedbackItens.noRegister.style.opacity = '0';
+                $scope.feedbackItens.noRegister.style.display = 'flex';
                 $timeout(() => {
-                $scope.noRegister.style.opacity = '1';
+                $scope.feedbackItens.noRegister.style.opacity = '1';
                 }, 200);
             }
         } else {
-            $scope.dropIcon.setAttribute('src', 'assets/images/down.png');
-            $scope.dropIcon.classList.remove('on');
-            $scope.dropIcon.classList.add('off');
-            $scope.hgBox.classList.remove('open');
+            $scope.feedbackItens.dropIcon.setAttribute('src', 'assets/images/down.png');
+            $scope.feedbackItens.dropIcon.classList.remove('on');
+            $scope.feedbackItens.dropIcon.classList.add('off');
+            $scope.feedbackItens.dropIcon.classList.remove('open');
 
-            $scope.hgBox.style.height = '65px';
+            $scope.feedbackItens.boxGeral.style.height = '65px';
 
             
             $timeout(() => {
-                $scope.box.style.display = 'none';
+                $scope.feedbackItens.dropBox.style.display = 'none';
             }, 1000);
-            $scope.box.style.opacity = '0';
+            $scope.feedbackItens.dropBox.style.opacity = '0';
 
             if ($scope.card.length == 0) {
                 $timeout(() => {
-                    $scope.noRegister.style.display = 'none';
+                    $scope.feedbackItens.noRegister.style.display = 'none';
                 }, 1000);
-                $scope.noRegister.style.opacity = '0';
+                $scope.feedbackItens.noRegister.style.opacity = '0';
             }
         }
     }
