@@ -319,7 +319,7 @@ textarea {
     font-size: var(--label);
 }
 
-@media (max-width: 995px) {
+@media (min-width: 768px) and (max-width: 991px) {
     /*Tela geral*/
     .workstation {
         flex-direction: column;
@@ -406,12 +406,14 @@ textarea {
         z-index: 4;
     }
 }
-@media (min-width: 768px) {
-    :root {
-        --text: 28px;
-        --label: 26px;
-        --title: 32px;
+@media (max-width: 767px)  {
+    /*Tela geral*/
+    .workstation {
+        flex-direction: column;
+        row-gap: 20px;
+        padding-bottom: 20px;
     }
+    
     .container {
         width: 100%;
         padding: 20px 50px;
@@ -420,18 +422,78 @@ textarea {
         width: 30px;
         height: 30px;
     }
+
+    /*Formulário de cadastro*/
     .form {
         min-height: 535px;
+        min-width: 100%;
     }
+    .form form {
+        width: 100%;
+    }
+    /*Feedback*/
     .feedback {
+        height: 90px;
+        border-radius: 12px;
         width: 100%;
         transition: 1s;
     }
-    .dropdown{
+    .dropdown {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 40px;
+        background-color: white;
         font-size: var(--text);
     }
+    .dropdownRight {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        column-gap: 10px;
+        font-size: var(--text);
+        text-decoration: none;
+    }
     .dropdown img {
-        margin-top: 0px;
+        margin-top: -2px;
+        width: 24px;
+        height: 24px;
+    }
+    .dropdown p {
+        margin: 0;
+        color: #444444;
+    }
+    div.dropdown > p:nth-child(1) {
+        font-weight: 600;
+    }
+    #dropBox {
+        display: none;
+        margin-top: 30px;
+        padding-top: 5px;
+        border-top: 1px solid #d0d0d0;
+        transition: 1s;
+    }
+    #searchBox {
+        padding-top: 20px;
+    }
+    #searchBox input {
+        flex: 1;
+        border-radius: 30px;
+        background-color: white;
+        background-image: url("../images/search.png");
+        background-size: 32px;
+        background-repeat: no-repeat;
+        background-position: 10px center;
+        padding-left: 50px;
+        padding-right: 10px;
+        transition: 0.3s;
+    }
+    #searchBox input:focus {
+        background-image: url("../images/searchfocus.png");
+    }
+    #noRegister {
+        transition: 0.7s;
+        display: none;
     }
     .box {
         margin-top: 25px;
@@ -444,5 +506,11 @@ textarea {
     .detailsHeader svg, .detailsHeader img {
         width: 40px;
         height: 40px;
+    }
+    
+    /*Card de mudanças*/
+    .changesCard {
+        padding: 20px 40px;
+        z-index: 4;
     }
 }
