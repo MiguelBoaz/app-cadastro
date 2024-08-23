@@ -92,6 +92,7 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
     }
 
     let verify = setInterval (() => {
+        try {
             if ($scope.card.length > 0 &&  $scope.feedbackItens.noRegister != null || $scope.feedbackItens.dropIcon.classList[0] == 'off') {
                 $scope.feedbackItens.noRegister.style.display = 'none';
             } else if  ($scope.feedbackItens.noRegister != null) {
@@ -103,6 +104,9 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
                 }, 50);
                 clearInterval(verify);
             }
+        } catch (e) {
+            console.log('Brabo');
+        }
         });
 
     $scope.clear = function() {
