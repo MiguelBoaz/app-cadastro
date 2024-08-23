@@ -105,29 +105,10 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
             }
         });
 
-    $scope.openVerify = function () {
-        if ($scope.feedbackItens.boxGeral.classList.contains('open') && $scope.feedbackItens.boxGeral.clientHeight != 65) {
-            console.log($scope.feedbackItens.noRegister)
-            $scope.feedbackItens.noRegister.style.display = 'flex';
-            $scope.feedbackItens.noRegister.style.opacity = '0';
-
-            $timeout (() => {
-                $scope.feedbackItens.noRegister.style.opacity = '1';
-            }, 50);
-        }
-    }
-
     $scope.clear = function() {
         do {
             card.pop();
         } while (card.length > 0);
-
-        console.log($scope.feedbackItens.boxGeral);
-
-        $scope.feedbackItens.boxGeral.classList.add('open');
-        $timeout (() => {
-            $scope.openVerify();
-        }, 200);
     }
 
     $scope.deleteItem = function ($event) {
@@ -150,15 +131,14 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
     }
        
     $scope.dropdown = function () {
-        $scope.dropIcon = document.getElementById('dropIcon');
+        console.log('aloha');
         
         if ( $scope.feedbackItens.dropIcon.classList[0] == 'off') {
-             $scope.feedbackItens.dropIcon.setAttribute('src', 'assets/images/up.png');
-             $scope.feedbackItens.dropIcon.classList.remove('off');
-             $scope.feedbackItens.dropIcon.classList.add('on');
-            $scope.feedbackItens.boxGeral.classList.add('open');
+            $scope.feedbackItens.dropIcon.setAttribute('src', 'assets/images/up.png');
+            $scope.feedbackItens.dropIcon.classList.remove('off');
+            $scope.feedbackItens.dropIcon.classList.add('on');
 
-           
+            $scope.feedbackItens.boxGeral.style.transition = '1s';
             $scope.feedbackItens.dropBox.style.display = 'block';
             $scope.feedbackItens.dropBox.style.opacity = '0';
             $scope.feedbackItens.boxGeral.style.height = '700px';
@@ -177,8 +157,8 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
             $scope.feedbackItens.dropIcon.setAttribute('src', 'assets/images/down.png');
             $scope.feedbackItens.dropIcon.classList.remove('on');
             $scope.feedbackItens.dropIcon.classList.add('off');
-            $scope.feedbackItens.dropIcon.classList.remove('open');
 
+            $scope.feedbackItens.boxGeral.style.transition = '1s';
             $scope.feedbackItens.boxGeral.style.height = '65px';
 
             
@@ -196,6 +176,16 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
         }
     }
 
+    $scope.openWidget = function () {
+        console.log('ohola');
+        angular.element(document.getElementById('box')).ready(function () {
+            $scope.feedbackItens.dropIcon.setAttribute('src', 'assets/images/up.png');
+            $scope.feedbackItens.boxGeral.style.height = '700px';
+            $scope.feedbackItens.dropBox.style.display = 'block';
+            $scope.feedbackItens.dropIcon.classList.remove('off');
+            $scope.feedbackItens.dropIcon.classList.add('on');
+        });
+    }
 });
 
 myApp.controller('childController', function($scope, card, $routeParams){
@@ -215,10 +205,6 @@ myApp.controller('childController', function($scope, card, $routeParams){
         }
     };
     let indexPosition;
-
-    $scope.clearVar = function () {
-        indexPosition = '';
-    }
 
     $scope.card.forEach (card => {
 
@@ -243,6 +229,7 @@ myApp.controller('childController', function($scope, card, $routeParams){
     }
 
     $scope.sendChange = function () {
+        console.log(indexPosition);
         $scope.card[parseInt(indexPosition)].name = $scope.name;
         $scope.card[parseInt(indexPosition)].age = parseInt($scope.age);
         $scope.card[parseInt(indexPosition)].occupation = $scope.occupation;

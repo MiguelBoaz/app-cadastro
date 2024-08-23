@@ -341,7 +341,6 @@ textarea {
         height: 65px;
         border-radius: 12px;
         width: 100%;
-        transition: 1s;
     }
     .dropdown {
         display: flex;
@@ -436,7 +435,6 @@ textarea {
         height: 65px;
         border-radius: 12px;
         width: 100%;
-        transition: 1s;
     }
     .dropdown {
         display: flex;
@@ -508,6 +506,9 @@ textarea {
     .feedback svg {
         width: 32px;
         height: 32px;
+    }
+    .details {
+        min-width: 0;
     }
     .detailsHeader svg, .detailsHeader img {
         width: 40px;
