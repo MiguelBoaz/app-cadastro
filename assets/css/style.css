@@ -122,6 +122,7 @@ button:hover {
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    overscroll-behavior: contain;
     background-color: white;
     padding: 20px;
     border-radius: 12px;
