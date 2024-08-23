@@ -60,6 +60,22 @@ myApp.directive('initFeedbackItens', function(feedbackItens) {
     };
 });
 
+myApp.directive('scrollScratch', function () {
+    return {
+        restrict: 'A',
+        scope: {
+            onScrollEnd: '&'
+        },
+        link: function(scope, element) {
+            element.bind('scroll', function() {
+                if (element[0].scrollTop + element[0].clientHeight > element[0].scrollHeight) {
+                    scope.$apply(scope.onScrollEnd);
+                }
+            });
+        }
+    }
+});
+
 myApp.controller('mainController', function($scope, $timeout, personService, card, feedbackItens) { 
     
     $scope.card = card;
@@ -202,6 +218,11 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
             } 
         });
     }
+
+        $scope.scratch = function () {
+            $scope.feedbackItens.boxGeral.style.transform = 'scaleY(1.01)'
+        }
+
 });
 
 myApp.controller('childController', function($scope, card, $routeParams){
