@@ -92,7 +92,7 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
     }
 
     let verify = setInterval (() => {
-            if ($scope.card.length > 0 &&  $scope.feedbackItens.noRegister != null) {
+            if ($scope.card.length > 0 &&  $scope.feedbackItens.noRegister != null || $scope.feedbackItens.dropIcon.classList[0] == 'off') {
                 $scope.feedbackItens.noRegister.style.display = 'none';
             } else if  ($scope.feedbackItens.noRegister != null) {
                 $scope.feedbackItens.noRegister.style.display = 'flex';
