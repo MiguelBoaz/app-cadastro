@@ -64,12 +64,15 @@ myApp.directive('scrollScratch', function () {
     return {
         restrict: 'A',
         scope: {
-            onScrollEnd: '&'
+            onScrollEnd: '&',
+            normalScroll: '&'
         },
         link: function(scope, element) {
             element.bind('scroll', function() {
-                if (element[0].scrollTop + element[0].clientHeight > element[0].scrollHeight) {
+                if (element[0].scrollTop + element[0].clientHeight >= element[0].scrollHeight) {
                     scope.$apply(scope.onScrollEnd);
+                } else {
+                    scope.$apply(scope.normalScroll);
                 }
             });
         }
@@ -220,7 +223,11 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
     }
 
         $scope.scratch = function () {
-            $scope.feedbackItens.boxGeral.style.transform = 'scaleY(1.01)'
+            $scope.feedbackItens.dropBox.style.transform = 'scaleY(1.01)'
+        }
+
+        $scope.noScratch = function () {
+            $scope.feedbackItens.dropBox.style.transform = 'scaleY(1)'
         }
 
 });
