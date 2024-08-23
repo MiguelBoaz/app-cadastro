@@ -114,7 +114,7 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
     $scope.deleteItem = function ($event) {
         console.log($event)
         $scope.card.forEach(card => {
-            if (card.id == parseInt($event.target.id)) {
+            if (card.id == parseInt($event.target.classList[0])) {
                 let index = $scope.card.indexOf(card);
                 if (index > -1) {
                     $scope.card.splice(index, 1);
@@ -177,13 +177,25 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
     }
 
     $scope.openWidget = function () {
-        console.log('ohola');
+        console.log('ahola');
         angular.element(document.getElementById('box')).ready(function () {
             $scope.feedbackItens.dropIcon.setAttribute('src', 'assets/images/up.png');
             $scope.feedbackItens.boxGeral.style.height = '700px';
             $scope.feedbackItens.dropBox.style.display = 'block';
             $scope.feedbackItens.dropIcon.classList.remove('off');
             $scope.feedbackItens.dropIcon.classList.add('on');
+        });
+    }
+
+    $scope.search = function () {
+        document.querySelectorAll('.box').forEach((card) => {
+            let tempText = card.querySelector('.name').innerText;
+            
+            if (!tempText.includes($scope.searchText.toUpperCase())) {
+                card.style.display = 'none';
+            } else if (tempText.includes($scope.searchText.toUpperCase())) {
+                card.style.display = 'block';
+            } 
         });
     }
 });
