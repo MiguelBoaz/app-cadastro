@@ -225,9 +225,8 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
 
     $scope.scratch = function () {
         console.log($scope.feedbackItens.dropBox.scrollHeight);
-        $scope.feedbackItens.dropBox.style.transform = 'scaleY(1.02)';
-        $scope.feedbackItens.dropBox.style.marginTop = '-60px';
-        // document.getElementById('dropdown').style.marginTop = '-60px';
+        $scope.feedbackItens.dropBox.style.transform = 'scaleY(2)';
+    
 
 
 
@@ -237,8 +236,7 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
         
         setTimeout (() => {
             $scope.feedbackItens.dropBox.style.transform = 'scaleY(1)';
-        // document.getElementById('dropdown').style.marginTop = '-10';
-            $scope.feedbackItens.dropBox.style.marginTop = '30px';
+        
         }, 1000);
     }
 
