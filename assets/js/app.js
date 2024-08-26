@@ -67,7 +67,6 @@ myApp.directive('scrollScratch', function () {
         restrict: 'A',
         scope: {
             onScrollEnd: '&',
-            normalScroll: '&'
         },
         link: function(scope, element) {
             element.bind('scroll', function() {
@@ -226,13 +225,21 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
 
     $scope.scratch = function () {
         console.log($scope.feedbackItens.dropBox.scrollHeight);
-        $scope.feedbackItens.dropBox.style.transform = 'scaleY(1.01)';
-        $scope.feedbackItens.scroll.style.transition = '0.5s';
-        $scope.feedbackItens.scroll.style.marginTop = '-50px';
+        $scope.feedbackItens.dropBox.style.transform = 'scaleY(1.02)';
+        // $scope.feedbackItens.dropBox.style.marginTop = '-60px';
+        document.getElementById('dropdown').style.marginTop = '-60px';
+
+
+
+        document.querySelectorAll('.trashHitbox').forEach((itens) => {
+            itens.style.right = '-1px';
+        });
+        
         setTimeout (() => {
             $scope.feedbackItens.dropBox.style.transform = 'scaleY(1)';
-            $scope.feedbackItens.scroll.style.marginTop = '-40px';
-        }, 500);
+        // document.getElementById('dropdown').style.marginTop = '-10';
+            $scope.feedbackItens.dropBox.style.marginTop = '30px';
+        }, 1000);
     }
 
 
