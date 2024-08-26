@@ -62,22 +62,6 @@ myApp.directive('initFeedbackItens', function(feedbackItens) {
     };
 });
 
-myApp.directive('scrollScratch', function () {
-    return {
-        restrict: 'A',
-        scope: {
-            onScrollEnd: '&',
-        },
-        link: function(scope, element) {
-            element.bind('scroll', function() {
-                if (element[0].scrollTop + element[0].clientHeight >= element[0].scrollHeight) {
-                    scope.$apply(scope.onScrollEnd);
-                }
-            });
-        }
-    };
-});
-
 myApp.controller('mainController', function($scope, $timeout, personService, card, feedbackItens) { 
     
     $scope.card = card;
@@ -222,26 +206,6 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
             } 
         });
     }
-
-    $scope.scratch = function () {
-        console.log($scope.feedbackItens.dropBox.scrollHeight);
-        $scope.feedbackItens.dropBox.style.transform = 'scaleY(1.02)';
-        $scope.feedbackItens.dropBox.style.marginTop = '-400px';
-        // document.getElementById('dropdown').style.marginTop = '-60px';
-
-
-
-        document.querySelectorAll('.trashHitbox').forEach((itens) => {
-            itens.style.right = '-1px';
-        });
-        
-        setTimeout (() => {
-            $scope.feedbackItens.dropBox.style.transform = 'scaleY(1)';
-        // document.getElementById('dropdown').style.marginTop = '-10';
-            $scope.feedbackItens.dropBox.style.marginTop = '30px';
-        }, 1000);
-    }
-
 
 });
 
