@@ -372,7 +372,6 @@ textarea {
         height: 65px;
         border-radius: 12px;
         width: 100%;
-        overscroll-behavior: contain;
     }
     .dropdown {
         display: flex;
@@ -467,7 +466,6 @@ textarea {
         height: 65px;
         border-radius: 12px;
         width: 100%;
-        overscroll-behavior: contain;
     }
     .dropdown {
         display: flex;

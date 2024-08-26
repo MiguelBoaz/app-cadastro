@@ -45,7 +45,8 @@ myApp.value('feedbackItens', {
     noRegister: null,
     dropIcon: null,
     dropBox: null,
-    boxGeral: null
+    boxGeral: null,
+    scrollEffect: null
 });
 
 myApp.directive('initFeedbackItens', function(feedbackItens) {
@@ -56,32 +57,27 @@ myApp.directive('initFeedbackItens', function(feedbackItens) {
             feedbackItens.dropIcon = document.getElementById('dropIcon');
             feedbackItens.dropBox = document.getElementById('dropBox');
             feedbackItens.boxGeral = document.getElementById('box');
+            feedbackItens.scroll = document.getElementById('scrollEffect');
         }
     };
 });
 
-// myApp.directive('scrollScratch', function () {
-//     return {
-//         restrict: 'A',
-//         scope: {
-//             onScrollEnd: '&',
-//             normalScroll: '&'
-//         },
-//         link: function(scope, element) {
-//             element.bind('scroll', function() {
-//                 if (element.scrollTop + element.clientHeight >= element.scrollHeight + 50) {
-//                     scope.$apply(scope.onScrollEnd);
-//                     setTimeout(function() {
-//                         element.scrollTo({
-//                             top: element.scrollHeight - element.clientHeight,
-//                             behavior: 'smooth'
-//                         });
-//                     }, 200);
-//                 }
-//             });
-//         }
-//     }
-// });
+myApp.directive('scrollScratch', function () {
+    return {
+        restrict: 'A',
+        scope: {
+            onScrollEnd: '&',
+            normalScroll: '&'
+        },
+        link: function(scope, element) {
+            element.bind('scroll', function() {
+                if (element[0].scrollTop + element[0].clientHeight >= element[0].scrollHeight) {
+                    scope.$apply(scope.onScrollEnd);
+                }
+            });
+        }
+    };
+});
 
 myApp.controller('mainController', function($scope, $timeout, personService, card, feedbackItens) { 
     
@@ -228,9 +224,16 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
         });
     }
 
-        $scope.scratch = function () {
-            $scope.feedbackItens.dropBox.style.height = '110%'
-        }
+    $scope.scratch = function () {
+        console.log($scope.feedbackItens.dropBox.scrollHeight);
+        $scope.feedbackItens.dropBox.style.transform = 'scaleY(1.01)';
+        $scope.feedbackItens.scroll.style.transition = '0.5s';
+        $scope.feedbackItens.scroll.style.marginTop = '-50px';
+        setTimeout (() => {
+            $scope.feedbackItens.dropBox.style.transform = 'scaleY(1)';
+            $scope.feedbackItens.scroll.style.marginTop = '-40px';
+        }, 500);
+    }
 
 
 });
