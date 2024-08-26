@@ -122,7 +122,6 @@ button:hover {
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    overscroll-behavior: auto;
     background-color: white;
     padding: 20px;
     border-radius: 12px;
@@ -373,6 +372,7 @@ textarea {
         height: 65px;
         border-radius: 12px;
         width: 100%;
+        overscroll-behavior: contain;
     }
     .dropdown {
         display: flex;
@@ -467,6 +467,7 @@ textarea {
         height: 65px;
         border-radius: 12px;
         width: 100%;
+        overscroll-behavior: contain;
     }
     .dropdown {
         display: flex;

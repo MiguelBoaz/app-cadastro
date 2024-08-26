@@ -60,28 +60,28 @@ myApp.directive('initFeedbackItens', function(feedbackItens) {
     };
 });
 
-myApp.directive('scrollScratch', function () {
-    return {
-        restrict: 'A',
-        scope: {
-            onScrollEnd: '&',
-            normalScroll: '&'
-        },
-        link: function(scope, element) {
-            element.bind('scroll', function() {
-                if (element.scrollTop + element.clientHeight >= element.scrollHeight + 50) {
-                    scope.$apply(scope.onScrollEnd);
-                    setTimeout(function() {
-                        element.scrollTo({
-                            top: element.scrollHeight - element.clientHeight,
-                            behavior: 'smooth'
-                        });
-                    }, 200);
-                }
-            });
-        }
-    }
-});
+// myApp.directive('scrollScratch', function () {
+//     return {
+//         restrict: 'A',
+//         scope: {
+//             onScrollEnd: '&',
+//             normalScroll: '&'
+//         },
+//         link: function(scope, element) {
+//             element.bind('scroll', function() {
+//                 if (element.scrollTop + element.clientHeight >= element.scrollHeight + 50) {
+//                     scope.$apply(scope.onScrollEnd);
+//                     setTimeout(function() {
+//                         element.scrollTo({
+//                             top: element.scrollHeight - element.clientHeight,
+//                             behavior: 'smooth'
+//                         });
+//                     }, 200);
+//                 }
+//             });
+//         }
+//     }
+// });
 
 myApp.controller('mainController', function($scope, $timeout, personService, card, feedbackItens) { 
     
@@ -206,11 +206,13 @@ myApp.controller('mainController', function($scope, $timeout, personService, car
     $scope.openWidget = function () {
         console.log('ahola');
         angular.element(document.getElementById('box')).ready(function () {
-            $scope.feedbackItens.dropIcon.setAttribute('src', 'assets/images/up.png');
-            $scope.feedbackItens.boxGeral.style.height = '700px';
-            $scope.feedbackItens.dropBox.style.display = 'block';
-            $scope.feedbackItens.dropIcon.classList.remove('off');
-            $scope.feedbackItens.dropIcon.classList.add('on');
+            if (window.innerWidth < 991) {  
+                $scope.feedbackItens.dropIcon.setAttribute('src', 'assets/images/up.png');
+                $scope.feedbackItens.boxGeral.style.height = '700px';
+                $scope.feedbackItens.dropBox.style.display = 'block';
+                $scope.feedbackItens.dropIcon.classList.remove('off');
+                $scope.feedbackItens.dropIcon.classList.add('on');
+            }
         });
     }
 
