@@ -491,7 +491,7 @@ textarea {
     }
     .dropdown p {
         margin: 0;
-        color: green !important;
+        color: red !important;
         color: #444444;
     }
     div.dropdown > p:nth-child(1) {
